@@ -22,6 +22,7 @@ define("DB_NAME", 'world');
 </head>
 <body>
 <?php
+//se connecter à la base de donnée et regarder qu'il n'y ait pas de problèmes pour s'y connecter.
 $dbh = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
 if ($dbh->connect_errno) {
 die("Problèmes de connexion ({$dbh->connect_errno}) " .
@@ -31,12 +32,13 @@ $dbh->close();
 
 $sql = "SELECT ID, Name, CountryCode, District FROM City WHERE CountryCode = 'CHE'
 ORDER BY Name";
-
+//petite phrase avant le tableau pour dire le nombres de villes qu'il y a.
 if ($result = $dbh->query($sql)) {
 $nbr = $result->num_rows;
-echo "Il y a" . $nbr . "ville(s) en Suisse";
+echo "Nous retrouvons" . $nbr . "ville(s) en Suisse";
 $result->close();
 }
+//Création de la table.
 ?>
 <table>
 <tr>
@@ -51,6 +53,7 @@ $result->close();
 <?php
 while($donnees = mysql_fetch_array($result))
 {
+//Affichage de la table
 ?>
 <tr>
 <td><?php echo $donnees['ID'];?></td>
