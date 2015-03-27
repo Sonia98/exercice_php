@@ -79,7 +79,7 @@ while ($city = $result->fetch_assoc())
     <td><?php echo $city['Name'];?></td>
     <td><?php echo $city['CountryCode'];?></td>
     <td><?php echo $city['District'];?></td>
-    <td><a href="edit.php"> modifier </a></td>   
+    <td><a href="edit.php?ID=<?=$city['ID']?>"> modifier </a></td>   
  </tr>
 
 <?php
@@ -87,6 +87,20 @@ while ($city = $result->fetch_assoc())
 }
 
 ?>
+
+<?php 
+ 
+
+$result->free(); 
+
+ 
+
+//Fermeture de la connexion à la base de données 
+
+$dbh->close(); 
+
+?> 
+
 
 </table>
 
