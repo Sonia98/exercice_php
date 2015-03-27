@@ -26,7 +26,7 @@ $id=$_GET['ID'];
 
 <meta charset="UTF-8">
 
-<title>Chapitre 4 TE1</title>
+<title>edit</title>
 
 </head>
 
