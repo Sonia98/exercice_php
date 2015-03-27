@@ -14,8 +14,7 @@ define("DB_SERVER", 'localhost');
 define("DB_USER", 'cpnv');
 define("DB_PASSWORD", 'cpnv1234');
 define("DB_NAME", 'world');
-?>
-<?php
+
  //Déclaration des variables
 $id=$_GET['ID'];
 ?>
@@ -69,19 +68,17 @@ $city = $result->fetch_assoc();
 
 ?>
 
-<form method="post" action="cities.php">
+<form method="post" action="update.php">
 
-<p>ID:<input type="text" value=<?= $city['ID']; ?> /></p>
+    <p>ID:<input type="text" value=<?= $city['ID']; ?> /></p>
 
-<p>Name:<input type="text" value=<?= $city['Name']; ?> /></p>
+    <p>Name:<input type="text" value=<?= $city['Name']; ?> /></p>
 
-<p>CountryCode:<input type="text" value=<?= $city['CountryCode']; ?> /></p>
+    <p>CountryCode:<input type="text" value=<?= $city['CountryCode']; ?> /></p>
 
-<p>District:<input type="text" value=<?= $city['District']; ?> /></p>
+    <p>District:<input type="text" value=<?= $city['District']; ?> /></p>
 
-<input type="submit" value="Modifier" />
-
-<input type="submit" value="Enregistrer" />
+    <input type="submit" value="Enregistrer" />
 
 </form>
 
