@@ -19,6 +19,7 @@ define("DB_NAME", 'world');
  //Déclaration des variables
 $id=$_GET['ID'];
 ?>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
