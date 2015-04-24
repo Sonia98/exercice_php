@@ -15,6 +15,9 @@ define("DB_SERVER", 'localhost');
 define("DB_USER", 'cpnv');
 define("DB_PASSWORD", 'cpnv1234');
 define("DB_NAME", 'world');
+
+//déclaration des variables
+
 ?>
 
 <!DOCTYPE html>
@@ -35,15 +38,31 @@ define("DB_NAME", 'world');
     
 $dbh = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME);
 
-if ($dbh->connect_errno) {
+if ($dbh->connect_errno) {     // a changer  ne pas utiliser die car ça veut dire meurt et si pose problème en haut ne continue pas le code
     die("Problèmes de connexion ({$dbh->connect_errno}) " .
         $dbh->connect_error);
 }
 
+//Requete 
 
-$sql = "SELECT ID, Name, CountryCode, District FROM City WHERE CountryCode = 'CHE'
-ORDER BY Name";
+$sql= "UPDATE City SET District='$district', Population=$population WHERE ID=id";
 
+if (!$result =$dbh->query($sql)) {
+
+echo "Erreur: impossible d'exécuter la requête ($sql) : " . $dbh->error;
+
+exit;
+
+} else {
+
+$result->free ();
+
+}
+
+$dbh->close();
+
+
+    
 
 
 ?>
