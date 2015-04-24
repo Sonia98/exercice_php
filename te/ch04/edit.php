@@ -14,7 +14,8 @@ define("DB_SERVER", 'localhost');
 define("DB_USER", 'cpnv');
 define("DB_PASSWORD", 'cpnv1234');
 define("DB_NAME", 'world');
-
+?>
+<?php
  //Déclaration des variables
 $id=$_GET['ID'];
 ?>
@@ -77,6 +78,8 @@ $city = $result->fetch_assoc();
     <p>CountryCode:<input type="text" value=<?= $city['CountryCode']; ?> /></p>
 
     <p>District:<input type="text" value=<?= $city['District']; ?> /></p>
+    
+    <p>Population:<input type="text" value=<?= $city['Population']; ?> /></p>
 
     <input type="submit" value="Enregistrer" />
 
