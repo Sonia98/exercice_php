@@ -41,7 +41,7 @@ if ($dbh->connect_errno) {
 }
 
 
-$sql = "SELECT ID, Name, CountryCode, District FROM City WHERE CountryCode = 'CHE'
+$sql = "SELECT * FROM City WHERE CountryCode = 'CHE'
 ORDER BY Name";
 
 //petite phrase avant le tableau pour dire le nombres de villes qu'il y a.
@@ -61,6 +61,7 @@ if ($result = $dbh->query($sql)) {
         <td>Name</td>
         <td>CountryCode</td>
         <td>District</td>
+        <td>Population</td>
         <td>Modifier</td>
     </tr>
 
@@ -79,6 +80,7 @@ while ($city = $result->fetch_assoc())
     <td><?php echo $city['Name'];?></td>
     <td><?php echo $city['CountryCode'];?></td>
     <td><?php echo $city['District'];?></td>
+    <td><?php echo $city['Population'];?></td>
     <td><a href="edit.php?ID=<?=$city['ID']?>"> modifier </a></td>   
  </tr>
 
