@@ -17,6 +17,9 @@ define("DB_PASSWORD", 'cpnv1234');
 define("DB_NAME", 'world');
 
 //déclaration des variables
+$id=$_POST['ID'];
+$district=$_POST['district'];
+$population=$_POST['population'];
 
 ?>
 
@@ -45,19 +48,11 @@ if ($dbh->connect_errno) {     // a changer  ne pas utiliser die car ça veut di
 
 //Requete 
 
-$sql= "UPDATE City SET District='$district', Population=$population WHERE ID=id";
+$sql="UPDATE City SET District='$district', Population='$population' WHERE ID='$id'";
 
-if (!$result =$dbh->query($sql)) {
+$result=$dbh->query($sql);
 
-echo "Erreur: impossible d'exécuter la requête ($sql) : " . $dbh->error;
-
-exit;
-
-} else {
-
-$result->free ();
-
-}
+header('Refresh:1 ; url=cities.php');
 
 $dbh->close();
 
@@ -66,3 +61,8 @@ $dbh->close();
 
 
 ?>
+
+    <h1>Update en cours...</h1>
+
+</body>
+</html>
