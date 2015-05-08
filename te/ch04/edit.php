@@ -46,7 +46,7 @@ $mysqli->connect_error);
 
 }
 
-$sql = "SELECT ID, Name, CountryCode, District FROM City WHERE ID =$id
+$sql = "SELECT * FROM City WHERE ID =$id and CountryCode ='CHE'
 ORDER BY Name";
 
 if ($result = $dbh->query($sql)) {
@@ -71,16 +71,16 @@ $city = $result->fetch_assoc();
 
 <form method="post" action="update.php">
 
-    <p>ID:<input type="text" value=<?= $city['ID']; ?> /></p>
+    <p>ID:<input type="text" name="ID" value=<?= $city['ID']; ?> disabled /></p>
 
-    <p>Name:<input type="text" value=<?= $city['Name']; ?> /></p>
+    <p>Name:<input type="text" value=<?= $city['Name']; ?> disabled /></p>
 
-    <p>CountryCode:<input type="text" value=<?= $city['CountryCode']; ?> /></p>
+    <p>CountryCode:<input type="text" value=<?= $city['CountryCode']; ?> disabled /></p>
 
-    <p>District:<input type="text" value=<?= $city['District']; ?> /></p>
+    <p>District:<input type="text" name="district" value=<?= $city['District']; ?> /></p>
     
-    <p>Population:<input type="text" value=<?= $city['Population']; ?> /></p>
-
+    <p>Population:<input type="number" name="population" value=<?= $city['Population']; ?> /></p>
+    
     <input type="submit" value="Enregistrer" />
 
 </form>
