@@ -1,0 +1,40 @@
+ <?php
+ /*----------------------------------------------------------------------------
+* Nom du programme: exercice.hmtl
+*
+* Auteur : Sonia Robert-Nicoud
+* Date: 22.05.15
+* Description: test pratique où nous devons créer un formulaire qui demande le nom, le sexe et l'adresse mail.
+**-----------------------------------------------------------------------------
+*/ 
+ ?>
+ <!DOCTYPE html>
+<html>
+<head>
+<title>exercice.html</title>
+</head>
+
+<body>
+    
+ <form name="traitement.php" method="post" action="traitement.php">
+    
+Sexe:
+    
+<input id="F" type="radio"  name="F"/> F  
+
+<input id="H" type="radio" name="H"/> H <br>
+    
+Nom:
+    
+<input id="nom" type="text" name="nom" min="5" maxlength="10" /> <br>
+maximu
+Courriel:
+
+<input id="courriel" type="email" pattern="[^ @]*@[^ @]*" name="courriel" /> <br>
+
+<input id="envoyer" type="submit" name="envoyer" />
+
+
+</body>
+
+</html> 
